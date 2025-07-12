@@ -1,0 +1,110 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "insert-upas-v1",
+        "author": "Ariel ",
+        "comment": "Insert base Upas",
+        "changes": [
+          {
+            "insertMany": {
+              "collectionName": "upas",
+              "documents": {
+                "$rawJson": [
+                  {
+                    "_id": "044a11dc-4a7b-4d65-b985-cb2aef9244de",
+                    "nickName": "Upa do Evandro",
+                    "address": {
+                      "_id": "05b6e071-b790-4cf5-bc90-d7fa0f4d7c73",
+                      "street": "2",
+                      "city": "Sao Paulo",
+                      "state": "SP",
+                      "zipCode": "11252465",
+                      "number": 1073741824
+                    },
+                    "doctors": [
+                      {
+                        "_id": "a88b706e-c600-4580-9843-242c5a542103",
+                        "name": "Evandro",
+                        "document":"12128123879",
+                        "specialty": "Vaginologista",
+                        "schedule": {
+                          "workShifts": [
+                            {
+                              "start": "2025-07-12T09:51:54.101",
+                              "end": "2025-07-12T19:51:54.101",
+                              "dayOfWeek": "SATURDAY"
+                            },
+                            {
+                              "start": "2025-08-12T09:51:54.101",
+                              "end": "2025-09-12T19:51:54.101",
+                              "dayOfWeek": "TUESDAY"
+                            }
+                          ]
+                        },
+                        "isAvailable": false
+                      }
+                    ],
+                    "attendants": [
+                      {
+                        "_id": "d46f8da2-8c37-407b-ab77-75e406502066",
+                        "name": "Evandro",
+                        "document":"12345678985"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "insertMany": {
+              "collectionName": "doctors",
+              "documents": {
+                "$rawJson": [
+                  {
+                    "_id": "a88b706e-c600-4580-9843-242c5a542103",
+                    "name": "Evandro",
+                    "document": "12128123879",
+                    "specialty": "Vaginologista",
+                    "doctorSchedule": {
+                      "workShifts": [
+                        {
+                          "start": "2025-07-12T09:51:54.101",
+                          "end": "2025-07-12T19:51:54.101",
+                          "dayOfWeek": "SATURDAY"
+                        },
+                        {
+                          "start": "2025-08-12T09:51:54.101",
+                          "end": "2025-09-12T19:51:54.101",
+                          "dayOfWeek": "TUESDAY"
+                        }
+                      ]
+                    },
+                    "isAvailable": false
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "insertMany": {
+              "collectionName": "attendants",
+              "documents": {
+                "$rawJson": [
+                  {
+                    "_id": "d46f8da2-8c37-407b-ab77-75e406502066",
+                    "name": "Evandro",
+                    "document": {
+                      "value": "12345678985"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
