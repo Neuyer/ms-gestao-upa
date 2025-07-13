@@ -38,7 +38,7 @@ public class CreateDoctorScheduleUseCase {
         doctor.updateScheduler(schedule);
         doctorsGateway.save(doctor);
 
-        log.info("Doctor scheduler for id {} created successfully", doctor.getId());
+        log.info("Doctor schedule for id {} created successfully", doctor.getId());
         return doctor;
     }
 }

@@ -12,7 +12,12 @@
               "documents": {
                 "$rawJson": [
                   {
-                    "_id": "044a11dc-4a7b-4d65-b985-cb2aef9244de",
+                    "_id": {
+                      "$binary": {
+                        "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                        "subType": "03"
+                      }
+                    },
                     "nickName": "Upa do Evandro",
                     "address": {
                       "_id": "05b6e071-b790-4cf5-bc90-d7fa0f4d7c73",
@@ -24,9 +29,14 @@
                     },
                     "doctors": [
                       {
-                        "_id": "a88b706e-c600-4580-9843-242c5a542103",
+                        "_id": {
+                          "$binary": {
+                            "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                            "subType": "03"
+                          }
+                        },
                         "name": "Evandro",
-                        "document":"12128123879",
+                        "document": "20221776060",
                         "specialty": "Vaginologista",
                         "schedule": {
                           "workShifts": [
@@ -47,9 +57,14 @@
                     ],
                     "attendants": [
                       {
-                        "_id": "d46f8da2-8c37-407b-ab77-75e406502066",
+                        "_id": {
+                          "$binary": {
+                            "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                            "subType": "03"
+                          }
+                        },
                         "name": "Evandro",
-                        "document":"12345678985"
+                        "document": "04142700022"
                       }
                     ]
                   }
@@ -63,9 +78,14 @@
               "documents": {
                 "$rawJson": [
                   {
-                    "_id": "a88b706e-c600-4580-9843-242c5a542103",
+                    "_id": {
+                      "$binary": {
+                        "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                        "subType": "03"
+                      }
+                    },
                     "name": "Evandro",
-                    "document": "12128123879",
+                    "document": "20221776060",
                     "specialty": "Vaginologista",
                     "doctorSchedule": {
                       "workShifts": [
@@ -93,10 +113,15 @@
               "documents": {
                 "$rawJson": [
                   {
-                    "_id": "d46f8da2-8c37-407b-ab77-75e406502066",
+                    "_id": {
+                      "$binary": {
+                        "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                        "subType": "03"
+                      }
+                    },
                     "name": "Evandro",
                     "document": {
-                      "value": "12345678985"
+                      "value": "39631743829"
                     }
                   }
                 ]

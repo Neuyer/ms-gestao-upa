@@ -39,4 +39,9 @@ public class AttendantsGatewayImpl implements AttendantGateway {
     public Optional<Attendant> findById(UUID drId) {
         return attendantRepository.findById(drId).map(AttendantMapper::toEntity);
     }
+
+    @Override
+    public void deleteById(UUID attendantId) {
+        attendantRepository.deleteById(attendantId);
+    }
 }

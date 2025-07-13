@@ -39,4 +39,9 @@ public class DoctorsGatewayImpl implements DoctorsGateway {
     public Optional<Doctor> findById(UUID drId) {
         return doctorRepository.findById(drId).map(DoctorMapper::toEntity);
     }
+
+    @Override
+    public void deleteById(UUID drId) {
+        doctorRepository.deleteById(drId);
+    }
 }

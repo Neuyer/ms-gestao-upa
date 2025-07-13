@@ -16,4 +16,6 @@ public interface AttendantGateway {
 
     Optional<Attendant> findById(UUID drId);
 
+    void deleteById(UUID attendantId);
+
 }

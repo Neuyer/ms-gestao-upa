@@ -15,5 +15,6 @@ public interface DoctorsGateway {
     List<Doctor> listAllById(List<UUID> uuids);
 
     Optional<Doctor> findById(UUID drId);
+    void deleteById(UUID drId);
 
 }

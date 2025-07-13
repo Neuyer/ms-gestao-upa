@@ -34,4 +34,9 @@ public class UPAGatewayImpl implements UPAGateway {
     public Optional<UPA> findById(UUID upaId) {
         return  upaRepository.findById(upaId).map(UPAMapper::toEntity);
     }
+
+    @Override
+    public void deleteById(UUID upaId) {
+        upaRepository.deleteById(upaId);
+    }
 }

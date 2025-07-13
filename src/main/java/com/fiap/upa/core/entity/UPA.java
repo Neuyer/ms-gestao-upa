@@ -10,7 +10,6 @@ public class UPA {
     private final List<Doctor> doctors;
     private final List<Attendant> attendants;
 
-    // Private constructor to enforce creation through a factory method or builder
     private UPA(UUID id, String nickName, Address address) {
         this.id = Objects.requireNonNull(id, "UBS ID cannot be null");
         this.nickName = Objects.requireNonNull(nickName, "UBS nickname cannot be null");
@@ -19,12 +18,10 @@ public class UPA {
         this.attendants = new ArrayList<>();
     }
 
-    // Factory method to create a new UBS
     public static UPA createNewUPA(String nickName, Address address) {
         return new UPA(UUID.randomUUID(), nickName, address);
     }
 
-    // Factory method to load an existing UBS from persistence
     public static UPA loadUPA(UUID id, String nickName, Address address, List<Doctor> doctors, List<Attendant> attendants) {
         UPA upa = new UPA(id, nickName, address);
         if (doctors != null) {
@@ -36,7 +33,6 @@ public class UPA {
         return upa;
     }
 
-    // --- Getters (exposing immutable state where possible) ---
     public UUID getId() {
         return id;
     }
@@ -90,9 +86,17 @@ public class UPA {
     public void removeDoctor(Doctor doctor) {
         Objects.requireNonNull(doctor, "Doctor cannot be null.");
         if (!doctors.contains(doctor)) {
-            throw new IllegalArgumentException("Doctor not found in this UBS.");
+            throw new IllegalArgumentException("Doctor not found in this UBS: " + doctor);
         }
         this.doctors.remove(doctor);
+    }
+
+    public void removeAttendant(Attendant attendant) {
+        Objects.requireNonNull(attendant, "Attendant cannot be null.");
+        if (!attendants.contains(attendant)) {
+            throw new IllegalArgumentException("Attendant not found in this UBS: " + attendant);
+        }
+        this.attendants.remove(attendant);
     }
 
     @Override

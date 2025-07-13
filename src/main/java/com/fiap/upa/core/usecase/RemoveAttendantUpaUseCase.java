@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class AddAttendantUpaUseCase {
+public class RemoveAttendantUpaUseCase {
 
     private final UPAGateway upaGateway;
     private final AttendantGateway attendantGateway;
 
-    public AddAttendantUpaUseCase(UPAGateway upaGateway, AttendantGateway attendantGateway) {
+    public RemoveAttendantUpaUseCase(UPAGateway upaGateway, AttendantGateway attendantGateway) {
         this.upaGateway = upaGateway;
 
         this.attendantGateway = attendantGateway;
@@ -22,7 +22,7 @@ public class AddAttendantUpaUseCase {
 
 
     public UPA execute(AddAttendantsDTO addAttendantsDTO) {
-        log.info("Adding attentdants:  UPA - {}, attendants {}", addAttendantsDTO.upaId(), addAttendantsDTO.attendantsIds());
+        log.info("Removing attendants:  UPA - {}, attendants {}", addAttendantsDTO.upaId(), addAttendantsDTO.attendantsIds());
 
         var upaId = addAttendantsDTO.upaId();
         var attendantsIds = addAttendantsDTO.attendantsIds();
@@ -34,10 +34,10 @@ public class AddAttendantUpaUseCase {
 
         var attendants = attendantGateway.listAllById(attendantsIds);
 
-        attendants.forEach(upa::addDAttendant);
+        attendants.forEach(upa::removeAttendant);
 
         upaGateway.save(upa);
-        log.info("Attendants added:  UPA - {}, attendants {}", upaId, attendants.size());
+        log.info("Attendants removed:  UPA - {}, attendants {}", upaId, attendants.size());
         return upa;
     }
 }

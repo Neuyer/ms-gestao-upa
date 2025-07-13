@@ -8,10 +8,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UPAGateway {
-    UPAModel save(UPA ubs);
+    UPAModel save(UPA upa);
 
     List<UPA> list();
 
     Optional<UPA> findById(UUID upaId);
+
+    void deleteById(UUID upaId);
 
 }

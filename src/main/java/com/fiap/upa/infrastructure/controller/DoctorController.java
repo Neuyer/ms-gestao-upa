@@ -3,11 +3,7 @@ package com.fiap.upa.infrastructure.controller;
 import com.fiap.upa.core.dto.CreateDoctorDTO;
 import com.fiap.upa.core.dto.CreateDoctorScheduleDTO;
 import com.fiap.upa.core.entity.Doctor;
-import com.fiap.upa.core.usecase.CreateDoctorScheduleUseCase;
-import com.fiap.upa.core.usecase.CreateDoctorUseCase;
-import com.fiap.upa.core.usecase.FindDoctorUseCase;
-import com.fiap.upa.core.usecase.ListDoctorsUseCase;
-import io.swagger.v3.oas.annotations.Parameter;
+import com.fiap.upa.core.usecase.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +18,14 @@ public class DoctorController {
     private final ListDoctorsUseCase listDoctorsUseCase;
     private final FindDoctorUseCase findDoctorUseCase;
     private final CreateDoctorScheduleUseCase createDoctorScheduleUseCase;
+    private final DeleteDoctorUseCase deleteDoctorUseCase;
 
-    public DoctorController(CreateDoctorUseCase createDoctorUseCase, ListDoctorsUseCase listDoctorsUseCase, FindDoctorUseCase findDoctorUseCase, CreateDoctorScheduleUseCase createDoctorScheduleUseCase) {
+    public DoctorController(CreateDoctorUseCase createDoctorUseCase, ListDoctorsUseCase listDoctorsUseCase, FindDoctorUseCase findDoctorUseCase, CreateDoctorScheduleUseCase createDoctorScheduleUseCase, DeleteDoctorUseCase deleteDoctorUseCase) {
         this.createDoctorUseCase = createDoctorUseCase;
         this.listDoctorsUseCase = listDoctorsUseCase;
         this.findDoctorUseCase = findDoctorUseCase;
         this.createDoctorScheduleUseCase = createDoctorScheduleUseCase;
+        this.deleteDoctorUseCase = deleteDoctorUseCase;
     }
 
     @GetMapping
@@ -48,6 +46,12 @@ public class DoctorController {
     @PostMapping("/escalas")
     public ResponseEntity<Doctor> createDoctorSchedule(@RequestBody CreateDoctorScheduleDTO createDoctorDTO) {
         return ResponseEntity.ok(createDoctorScheduleUseCase.execute(createDoctorDTO));
+    }
+
+    @DeleteMapping("{doctorId}")
+    public ResponseEntity<Void> delete(@PathVariable UUID doctorId) {
+        deleteDoctorUseCase.execute(doctorId);
+        return ResponseEntity.ok().build();
     }
 
 }
