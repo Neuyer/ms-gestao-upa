@@ -14,6 +14,7 @@ public interface ReceptionGateway {
     List<Reception> list();
 
     List<Reception> listAllByUpaId(UUID upaId);
+    List<Reception> listAllByUpaIdAndCreationTimeBetween(UUID upaId, LocalDateTime start, LocalDateTime end);
 
     Optional<Reception> findById(UUID receptionId);
 

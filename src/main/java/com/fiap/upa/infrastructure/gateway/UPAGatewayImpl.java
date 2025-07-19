@@ -1,5 +1,6 @@
 package com.fiap.upa.infrastructure.gateway;
 
+import com.fiap.upa.core.entity.SaoPauloCity;
 import com.fiap.upa.core.entity.UPA;
 import com.fiap.upa.core.gateway.UPAGateway;
 import com.fiap.upa.infrastructure.mapper.UPAMapper;
@@ -28,6 +29,11 @@ public class UPAGatewayImpl implements UPAGateway {
     @Override
     public List<UPA> list() {
         return upaRepository.findAll().stream().map(UPAMapper::toEntity).toList();
+    }
+
+    @Override
+    public List<UPA> listByCity(SaoPauloCity city) {
+        return upaRepository.findByAddressCity(city).stream().map(UPAMapper::toEntity).toList();
     }
 
     @Override

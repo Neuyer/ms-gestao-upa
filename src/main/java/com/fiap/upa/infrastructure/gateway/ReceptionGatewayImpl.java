@@ -38,6 +38,11 @@ public class ReceptionGatewayImpl implements ReceptionGateway {
     }
 
     @Override
+    public List<Reception> listAllByUpaIdAndCreationTimeBetween(UUID upaId, LocalDateTime start, LocalDateTime end) {
+        return receptionRepository.findByUpaIdAndCreationDateBetween(upaId, start, end).stream().map(ReceptionMapper::toEntity).toList();
+    }
+
+    @Override
     public Optional<Reception> findById(UUID upaId) {
         return  receptionRepository.findById(upaId).map(ReceptionMapper::toEntity);
     }

@@ -18,11 +18,16 @@
                         "subType": "03"
                       }
                     },
-                    "nickName": "Upa do Evandro",
+                    "nickName": "Upa 1",
                     "address": {
-                      "_id": "05b6e071-b790-4cf5-bc90-d7fa0f4d7c73",
+                      "_id": {
+                        "$binary": {
+                          "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                          "subType": "03"
+                        }
+                      },
                       "street": "2",
-                      "city": "Sao Paulo",
+                      "city": "Santos",
                       "state": "SP",
                       "zipCode": "11252465",
                       "number": 1073741824
@@ -35,9 +40,9 @@
                             "subType": "03"
                           }
                         },
-                        "name": "Evandro",
+                        "name": "Carlos Magno",
                         "document": "20221776060",
-                        "specialty": "Vaginologista",
+                        "specialty": "Clinico geral",
                         "schedule": {
                           "workShifts": [
                             {
@@ -63,7 +68,7 @@
                             "subType": "03"
                           }
                         },
-                        "name": "Evandro",
+                        "name": "Clarice Maia",
                         "document": "04142700022"
                       }
                     ]
@@ -84,9 +89,9 @@
                         "subType": "03"
                       }
                     },
-                    "name": "Evandro",
+                    "name": "Carlos Magno",
                     "document": "20221776060",
-                    "specialty": "Vaginologista",
+                    "specialty": "Clinico geral",
                     "doctorSchedule": {
                       "workShifts": [
                         {
@@ -119,10 +124,427 @@
                         "subType": "03"
                       }
                     },
-                    "name": "Evandro",
+                    "name": "Ericlebson gomes",
                     "document": {
                       "value": "39631743829"
                     }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "insertMany": {
+              "collectionName": "receptions",
+              "documents": {
+                "$rawJson": [
+                  {
+                    "_id": {
+                      "$binary": {
+                        "base64": "zEWzEv2J86qBr/o77tDxsw==",
+                        "subType": "03"
+                      }
+                    },
+                    "patientName": "Ariel",
+                    "patientDocument": "12128123845",
+                    "serviceNumber": "MJULYD19-0000",
+                    "specialty": "Clinico",
+                    "upa": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                          "subType": "03"
+                        }
+                      },
+                      "doctors": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Carlos Magno",
+                          "document": "20221776060",
+                          "specialty": "Clinico geral",
+                          "isAvailable": false
+                        }
+                      ],
+                      "attendants": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Clarice Maia",
+                          "document": "04142700022"
+                        }
+                      ],
+                      "nickName": "Upa 1",
+                      "address": {
+                        "_id": {
+                          "$binary": {
+                            "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                            "subType": "03"
+                          }
+                        },
+                        "street": "2",
+                        "city": "SANTOS",
+                        "state": "SP",
+                        "zipCode": "11252465",
+                        "number": 1073741824
+                      }
+                    },
+                    "doctor": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Carlos Magno",
+                      "document": "20221776060",
+                      "specialty": "Clinico geral",
+                      "isAvailable": false,
+                      "doctorSchedule": {
+                        "workShifts": [
+                          {
+                            "dayOfWeek": "SATURDAY",
+                            "start": "2025-07-12T12:51:54.101Z",
+                            "end": "2025-07-12T22:51:54.101Z"
+                          },
+                          {
+                            "dayOfWeek": "TUESDAY",
+                            "start": "2025-08-12T12:51:54.101Z",
+                            "end": "2025-09-12T22:51:54.101Z"
+                          }
+                        ]
+                      }
+                    },
+                    "attendant": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Ericlebson gomes",
+                      "document": {
+                        "value": "39631743829"
+                      }
+                    },
+                    "urgencyLevel": "NAO_URGENTE",
+                    "status": "WAITING",
+                    "creationDate": "2025-07-19T14:31:02.621Z",
+                    "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"
+                  },
+                  {
+                    "_id": {
+                      "$binary": {
+                        "base64": "zEWzEv2J86qBr/o77tDxsw==",
+                        "subType": "03"
+                      }
+                    },
+                    "patientName": "Ariel",
+                    "patientDocument": "12128123845",
+                    "serviceNumber": "MJULYD19-0002",
+                    "specialty": "Clinico",
+                    "upa": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                          "subType": "03"
+                        }
+                      },
+                      "doctors": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Carlos Magno",
+                          "document": "20221776060",
+                          "specialty": "Clinico geral",
+                          "isAvailable": false
+                        }
+                      ],
+                      "attendants": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Clarice Maia",
+                          "document": "04142700022"
+                        }
+                      ],
+                      "nickName": "Upa 1",
+                      "address": {
+                        "_id": {
+                          "$binary": {
+                            "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                            "subType": "03"
+                          }
+                        },
+                        "street": "2",
+                        "city": "SANTOS",
+                        "state": "SP",
+                        "zipCode": "11252465",
+                        "number": 1073741824
+                      }
+                    },
+                    "doctor": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Carlos Magno",
+                      "document": "20221776060",
+                      "specialty": "Clinico geral",
+                      "isAvailable": false,
+                      "doctorSchedule": {
+                        "workShifts": [
+                          {
+                            "dayOfWeek": "SATURDAY",
+                            "start": "2025-07-12T12:51:54.101Z",
+                            "end": "2025-07-12T22:51:54.101Z"
+                          },
+                          {
+                            "dayOfWeek": "TUESDAY",
+                            "start": "2025-08-12T12:51:54.101Z",
+                            "end": "2025-09-12T22:51:54.101Z"
+                          }
+                        ]
+                      }
+                    },
+                    "attendant": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Ericlebson gomes",
+                      "document": {
+                        "value": "39631743829"
+                      }
+                    },
+                    "urgencyLevel": "NAO_URGENTE",
+                    "status": "WAITING",
+                    "creationDate": "2025-07-19T12:31:02.621Z",
+                    "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"
+                  },
+                  {
+                    "_id": {
+                      "$binary": {
+                        "base64": "zEWzEv2J86qBr/o77tDxsw==",
+                        "subType": "03"
+                      }
+                    },
+                    "patientName": "Ariel",
+                    "patientDocument": "12128123845",
+                    "serviceNumber": "MJULYD19-0003",
+                    "specialty": "Clinico",
+                    "upa": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                          "subType": "03"
+                        }
+                      },
+                      "doctors": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Carlos Magno",
+                          "document": "20221776060",
+                          "specialty": "Clinico geral",
+                          "isAvailable": false
+                        }
+                      ],
+                      "attendants": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Clarice Maia",
+                          "document": "04142700022"
+                        }
+                      ],
+                      "nickName": "Upa 1",
+                      "address": {
+                        "_id": {
+                          "$binary": {
+                            "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                            "subType": "03"
+                          }
+                        },
+                        "street": "2",
+                        "city": "SANTOS",
+                        "state": "SP",
+                        "zipCode": "11252465",
+                        "number": 1073741824
+                      }
+                    },
+                    "doctor": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Carlos Magno",
+                      "document": "20221776060",
+                      "specialty": "Clinico geral",
+                      "isAvailable": false,
+                      "doctorSchedule": {
+                        "workShifts": [
+                          {
+                            "dayOfWeek": "SATURDAY",
+                            "start": "2025-07-12T12:51:54.101Z",
+                            "end": "2025-07-12T22:51:54.101Z"
+                          },
+                          {
+                            "dayOfWeek": "TUESDAY",
+                            "start": "2025-08-12T12:51:54.101Z",
+                            "end": "2025-09-12T22:51:54.101Z"
+                          }
+                        ]
+                      }
+                    },
+                    "attendant": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Ericlebson gomes",
+                      "document": {
+                        "value": "39631743829"
+                      }
+                    },
+                    "urgencyLevel": "NAO_URGENTE",
+                    "status": "WAITING",
+                    "creationDate": "2025-07-19T13:31:02.621Z",
+                    "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"
+                  },
+                  {
+                    "_id": {
+                      "$binary": {
+                        "base64": "zEWzEv2J86qBr/o77tDxsw==",
+                        "subType": "03"
+                      }
+                    },
+                    "patientName": "Ariel",
+                    "patientDocument": "12128123845",
+                    "serviceNumber": "MJULYD19-0004",
+                    "specialty": "Clinico",
+                    "upa": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                          "subType": "03"
+                        }
+                      },
+                      "doctors": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Carlos Magno",
+                          "document": "20221776060",
+                          "specialty": "Clinico geral",
+                          "isAvailable": false
+                        }
+                      ],
+                      "attendants": [
+                        {
+                          "_id": {
+                            "$binary": {
+                              "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                              "subType": "03"
+                            }
+                          },
+                          "name": "Clarice Maia",
+                          "document": "04142700022"
+                        }
+                      ],
+                      "nickName": "Upa 1",
+                      "address": {
+                        "_id": {
+                          "$binary": {
+                            "base64": "jkprkFWmxsqTQ0mvx01WuA==",
+                            "subType": "03"
+                          }
+                        },
+                        "street": "2",
+                        "city": "SANTOS",
+                        "state": "SP",
+                        "zipCode": "11252465",
+                        "number": 1073741824
+                      }
+                    },
+                    "doctor": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "z7ynKE45RhOWvPkgtcN+Fg==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Carlos Magno",
+                      "document": "20221776060",
+                      "specialty": "Clinico geral",
+                      "isAvailable": false,
+                      "doctorSchedule": {
+                        "workShifts": [
+                          {
+                            "dayOfWeek": "SATURDAY",
+                            "start": "2025-07-12T12:51:54.101Z",
+                            "end": "2025-07-12T22:51:54.101Z"
+                          },
+                          {
+                            "dayOfWeek": "TUESDAY",
+                            "start": "2025-08-12T12:51:54.101Z",
+                            "end": "2025-09-12T22:51:54.101Z"
+                          }
+                        ]
+                      }
+                    },
+                    "attendant": {
+                      "_id": {
+                        "$binary": {
+                          "base64": "fE1fepCRTacpNOsK/Kp4kQ==",
+                          "subType": "03"
+                        }
+                      },
+                      "name": "Ericlebson gomes",
+                      "document": {
+                        "value": "39631743829"
+                      }
+                    },
+                    "urgencyLevel": "NAO_URGENTE",
+                    "status": "WAITING",
+                    "creationDate": "2025-07-19T16:31:02.621Z",
+                    "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"
                   }
                 ]
               }

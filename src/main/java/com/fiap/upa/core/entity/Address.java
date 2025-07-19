@@ -7,12 +7,12 @@ public class Address {
 
     private final UUID id;
     private final String street;
-    private final String city;
+    private final SaoPauloCity city;
     private final String state;
     private final String zipCode;
     private final Integer number;
 
-    private Address(UUID id, String street, String city, String state, String zipCode, Integer number) {
+    private Address(UUID id, String street, SaoPauloCity city, String state, String zipCode, Integer number) {
         this.id = Objects.requireNonNull(id, "ID cannot be null");
         this.street = Objects.requireNonNull(street, "Street cannot be null");
         this.city = Objects.requireNonNull(city, "City cannot be null");
@@ -21,11 +21,11 @@ public class Address {
         this.number = Objects.requireNonNull(number, "Zip code cannot be null");
     }
 
-    public static Address createNewAddress(String street, String city, String state, String zipCode, Integer number) {
+    public static Address createNewAddress(String street, SaoPauloCity city, String state, String zipCode, Integer number) {
         return new Address(UUID.randomUUID(), street, city, state, zipCode, number);
     }
 
-    public static Address loadAddress(UUID id, String street, String city, String state, String zipCode, Integer number) {
+    public static Address loadAddress(UUID id, String street, SaoPauloCity city, String state, String zipCode, Integer number) {
         return new Address(id, street, city, state, zipCode, number);
     }
 
@@ -37,7 +37,7 @@ public class Address {
         return street;
     }
 
-    public String getCity() {
+    public SaoPauloCity getCity() {
         return city;
     }
 

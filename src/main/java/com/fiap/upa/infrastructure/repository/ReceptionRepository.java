@@ -13,6 +13,7 @@ import java.util.UUID;
 public interface ReceptionRepository extends MongoRepository<ReceptionModel, UUID> {
 
     long countByUpaIdAndCreationDateBetween(UUID upaId, LocalDateTime startDate, LocalDateTime endDate);
+    List<ReceptionModel> findByUpaIdAndCreationDateBetween(UUID upaId, LocalDateTime startDate, LocalDateTime endDate);
 
     List<ReceptionModel> findAllByUpaId(UUID id);
     Optional<ReceptionModel> findByServiceNumber(String serviceNumber);
