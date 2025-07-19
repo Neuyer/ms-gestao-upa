@@ -1,7 +1,9 @@
 package com.fiap.upa.infrastructure.gateway;
 
+import com.fiap.upa.core.dto.AddPatientToQueueDTO;
 import com.fiap.upa.core.entity.Reception;
 import com.fiap.upa.core.gateway.ReceptionGateway;
+import com.fiap.upa.infrastructure.httpClient.QueueClient;
 import com.fiap.upa.infrastructure.mapper.ReceptionMapper;
 import com.fiap.upa.infrastructure.repository.ReceptionRepository;
 import com.fiap.upa.infrastructure.repository.model.ReceptionModel;
@@ -16,9 +18,11 @@ import java.util.UUID;
 public class ReceptionGatewayImpl implements ReceptionGateway {
 
     private final ReceptionRepository receptionRepository;
+    private final QueueClient queueClient;
 
-    public ReceptionGatewayImpl(ReceptionRepository receptionRepository) {
+    public ReceptionGatewayImpl(ReceptionRepository receptionRepository, QueueClient queueClient) {
         this.receptionRepository = receptionRepository;
+        this.queueClient = queueClient;
     }
 
 
@@ -55,6 +59,11 @@ public class ReceptionGatewayImpl implements ReceptionGateway {
     @Override
     public void deleteById(UUID upaId) {
         receptionRepository.deleteById(upaId);
+    }
+
+    @Override
+    public void addPatientTOQueue(UUID upaId, AddPatientToQueueDTO request) {
+        queueClient.add(upaId, request);
     }
 
     @Override

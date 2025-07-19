@@ -1,5 +1,6 @@
 package com.fiap.upa.core.gateway;
 
+import com.fiap.upa.core.dto.AddPatientToQueueDTO;
 import com.fiap.upa.core.entity.Reception;
 import com.fiap.upa.infrastructure.repository.model.ReceptionModel;
 
@@ -14,6 +15,7 @@ public interface ReceptionGateway {
     List<Reception> list();
 
     List<Reception> listAllByUpaId(UUID upaId);
+
     List<Reception> listAllByUpaIdAndCreationTimeBetween(UUID upaId, LocalDateTime start, LocalDateTime end);
 
     Optional<Reception> findById(UUID receptionId);
@@ -21,6 +23,8 @@ public interface ReceptionGateway {
     Optional<Reception> findByServiceNumber(String receptionId);
 
     void deleteById(UUID upaId);
+
+    void addPatientTOQueue(UUID upaId, AddPatientToQueueDTO request);
 
     Long countReceptions(UUID upaId, LocalDateTime dateTime);
 
