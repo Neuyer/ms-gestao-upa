@@ -33,7 +33,7 @@ public class UPAGatewayImpl implements UPAGateway {
 
     @Override
     public List<UPA> listByCity(SaoPauloCity city) {
-        return upaRepository.findByAddressCity(city).stream().map(UPAMapper::toEntity).toList();
+        return upaRepository.findByAddress_City(city.getCityName()).stream().map(UPAMapper::toEntity).toList();
     }
 
     @Override
