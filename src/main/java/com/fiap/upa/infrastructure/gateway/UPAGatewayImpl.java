@@ -38,7 +38,7 @@ public class UPAGatewayImpl implements UPAGateway {
 
     @Override
     public Optional<UPA> findById(UUID upaId) {
-        return  upaRepository.findById(upaId).map(UPAMapper::toEntity);
+        return upaRepository.findById(upaId).map(UPAMapper::toEntity);
     }
 
     @Override

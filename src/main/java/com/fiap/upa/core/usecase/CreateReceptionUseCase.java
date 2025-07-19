@@ -1,5 +1,6 @@
 package com.fiap.upa.core.usecase;
 
+import com.fiap.upa.core.dto.AddPatientToQueueDTO;
 import com.fiap.upa.core.dto.CreateReceptionDTO;
 import com.fiap.upa.core.entity.Reception;
 import com.fiap.upa.core.gateway.ReceptionGateway;
@@ -19,8 +20,6 @@ public class CreateReceptionUseCase {
     private final FindUPAUseCase findUPAUseCase;
     private final FindDoctorUseCase findDoctorUseCase;
     private final FindAttendantUseCase findAttendantUseCase;
-
-
 
 
     public CreateReceptionUseCase(ReceptionGateway receptionGateway, FindUPAUseCase findUPAUseCase, FindDoctorUseCase findDoctorUseCase, FindAttendantUseCase findAttendantUseCase) {
@@ -55,6 +54,14 @@ public class CreateReceptionUseCase {
         reception.updateAttendant(attendant);
 
         var savedReception = receptionGateway.save(reception);
+
+        try {
+            AddPatientToQueueDTO.PatientRequest patientRequest = new AddPatientToQueueDTO.PatientRequest(input.patientName(), savedReception.getServiceNumber());
+            AddPatientToQueueDTO req = new AddPatientToQueueDTO(patientRequest, input.urgencyLevel());
+            receptionGateway.addPatientTOQueue(upaId, req);
+        } catch (Exception e) {
+            log.info("Reception for id {} not send to queue - ex: {}", savedReception.getId(), e);
+        }
 
         log.info("Reception for id {} created successfully", savedReception.getId());
         return reception;

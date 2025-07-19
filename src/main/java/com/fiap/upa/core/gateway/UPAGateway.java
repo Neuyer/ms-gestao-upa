@@ -12,6 +12,7 @@ public interface UPAGateway {
     UPAModel save(UPA upa);
 
     List<UPA> list();
+
     List<UPA> listByCity(SaoPauloCity city);
 
     Optional<UPA> findById(UUID upaId);
