@@ -2,6 +2,7 @@ package com.fiap.upa.infrastructure.gateway;
 
 import com.fiap.upa.core.dto.AddPatientToQueueDTO;
 import com.fiap.upa.core.entity.Reception;
+import com.fiap.upa.core.entity.ServiceStatus;
 import com.fiap.upa.core.gateway.ReceptionGateway;
 import com.fiap.upa.infrastructure.httpClient.QueueClient;
 import com.fiap.upa.infrastructure.mapper.ReceptionMapper;
@@ -43,17 +44,26 @@ public class ReceptionGatewayImpl implements ReceptionGateway {
 
     @Override
     public List<Reception> listAllByUpaIdAndCreationTimeBetween(UUID upaId, LocalDateTime start, LocalDateTime end) {
-        return receptionRepository.findByUpaIdAndCreationDateBetween(upaId, start, end).stream().map(ReceptionMapper::toEntity).toList();
+        return receptionRepository.findByUpaIdAndStatusAndCreationDateBetween(upaId, ServiceStatus.FINISHED, start, end).stream().map(ReceptionMapper::toEntity).toList();
     }
 
     @Override
     public Optional<Reception> findById(UUID upaId) {
-        return  receptionRepository.findById(upaId).map(ReceptionMapper::toEntity);
+        return receptionRepository.findById(upaId).map(ReceptionMapper::toEntity);
     }
 
     @Override
     public Optional<Reception> findByServiceNumber(String receptionId) {
         return receptionRepository.findByServiceNumber(receptionId).map(ReceptionMapper::toEntity);
+    }
+
+    @Override
+    public String getServiceNumber(UUID upaId) {
+        try {
+            return queueClient.getNumber(upaId).getBody().number();
+        }catch (Exception e) {
+            throw new IllegalArgumentException("Falha ao buscar senha {}", e);
+        }
     }
 
     @Override

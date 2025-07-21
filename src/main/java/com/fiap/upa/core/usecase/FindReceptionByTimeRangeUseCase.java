@@ -1,6 +1,7 @@
 package com.fiap.upa.core.usecase;
 
 import com.fiap.upa.core.entity.Reception;
+import com.fiap.upa.core.entity.ServiceStatus;
 import com.fiap.upa.core.gateway.ReceptionGateway;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,9 @@ public class FindReceptionByTimeRangeUseCase {
         var receptions = receptionGateway.listAllByUpaIdAndCreationTimeBetween(upaId, start, end);
 
         findUPAUseCase.execute(upaId);
+         var res = receptions.stream().filter(reception -> ServiceStatus.FINISHED.equals(reception.getStatus())).toList();
 
         log.info("Receptions for upa {} found successfully", upaId);
-        return receptions;
+        return res;
     }
 }

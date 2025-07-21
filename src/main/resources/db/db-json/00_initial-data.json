@@ -235,7 +235,7 @@
                         "value": "39631743829"
                       }
                     },
-                    "urgencyLevel": "NAO_URGENTE",
+                    "urgencyLevel": "NOT_URGENT",
                     "status": "WAITING",
                     "creationDate": "2025-07-19T14:31:02.621Z",
                     "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"
@@ -337,7 +337,7 @@
                         "value": "39631743829"
                       }
                     },
-                    "urgencyLevel": "NAO_URGENTE",
+                    "urgencyLevel": "NOT_URGENT",
                     "status": "WAITING",
                     "creationDate": "2025-07-19T12:31:02.621Z",
                     "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"
@@ -439,7 +439,7 @@
                         "value": "39631743829"
                       }
                     },
-                    "urgencyLevel": "NAO_URGENTE",
+                    "urgencyLevel": "NOT_URGENT",
                     "status": "WAITING",
                     "creationDate": "2025-07-19T13:31:02.621Z",
                     "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"
@@ -541,7 +541,7 @@
                         "value": "39631743829"
                       }
                     },
-                    "urgencyLevel": "NAO_URGENTE",
+                    "urgencyLevel": "NOT_URGENT",
                     "status": "WAITING",
                     "creationDate": "2025-07-19T16:31:02.621Z",
                     "_class": "com.fiap.upa.infrastructure.repository.model.ReceptionModel"

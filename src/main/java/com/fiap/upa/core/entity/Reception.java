@@ -97,7 +97,7 @@ public class Reception {
 
     public void endService() {
         if (ServiceStatus.FINISHED.equals(this.status))
-            throw new IllegalArgumentException("Atendimento ja finalizado");
+            throw new IllegalArgumentException("Atendimento ja finalizado - " + this.serviceNumber);
         else {
             this.endDate = LocalDateTime.now();
             this.status = ServiceStatus.FINISHED;

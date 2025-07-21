@@ -86,7 +86,7 @@ public class UPAController {
     }
 
     @GetMapping("{upaId}/atendimentos/periodo")
-    public ResponseEntity<List<Reception>> createUpaReception(@PathVariable UUID upaId, @PathParam("inicio") LocalDateTime inicio, @PathParam("fim") LocalDateTime fim) {
+    public ResponseEntity<List<Reception>> createUpaReception(@PathVariable UUID upaId, @RequestParam("inicio") LocalDateTime inicio, @RequestParam("fim") LocalDateTime fim) {
         return ResponseEntity.ok(findReceptionByTimeRangeUseCase.execute(upaId, inicio, fim));
     }
 
