@@ -49,15 +49,19 @@ public class DataMocker implements CommandLineRunner {
             queueClient.generateQueues(upaId);
         } catch (Exception e) {
         }
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 40; i++) {
             var doctorId = UUID.fromString("1346394e-28a7-bccf-167e-c3b520f9bc96");
             var attendantId = UUID.fromString("a74d9190-7a5f-4d7c-9178-aafc0aeb3429");
             var name = "Patient " + (int) (Math.random() * 1500);
             var cpf = cpf();
 
+            var number = queueClient.getNumber(upaId);
+            var triagemNumber = queueClient.triage(upaId);
+
             var reception = new CreateReceptionDTO(name, cpf, "Clinico geral", doctorId, attendantId, randomUrgency());
-            Thread.sleep((long) (Math.random() * 2500));
             var res = createReceptionUseCase.execute(upaId, reception);
+
+            Thread.sleep((long) (Math.random() * 2500));
             this.receptions.add(res);
             addPatient(upaId, res);
         }
@@ -66,18 +70,15 @@ public class DataMocker implements CommandLineRunner {
 
     @Async
     void addPatient(UUID upaId, Reception reception) throws InterruptedException {
-        AddPatientToQueueDTO addPatientToQueueDTO = new AddPatientToQueueDTO(new AddPatientToQueueDTO.PatientRequest(reception.getPatientName(), reception.getServiceNumber()), reception.getUrgencyLevel());
-        var number = queueClient.triage(upaId);
-        log.info("triagem: {}", number);
-        Thread.sleep((long) (Math.random() * 2500));
-        queueClient.add(upaId, addPatientToQueueDTO);
         Thread.sleep((long) (Math.random() * 2500));
         queueClient.service(upaId);
         startReceptionUseCase.execute(upaId, reception.getServiceNumber());
+        geraTriagem();
     }
 
     @Async
     void end() {
+        geraTriagem();
         var upaId = UUID.fromString("cac6a655-906b-4a8e-b856-4dc7af494393");
         receptions.forEach(reception -> {
                     try {
@@ -96,7 +97,7 @@ public class DataMocker implements CommandLineRunner {
     @Async
     void geraTriagem() {
         var upaId = UUID.fromString("cac6a655-906b-4a8e-b856-4dc7af494393");
-        for (int i = 0; i < 32; i++) {
+        for (int i = 0; i < 100; i++) {
             queueClient.getNumber(upaId);
         }
 

@@ -53,8 +53,8 @@ public class ReceptionGatewayImpl implements ReceptionGateway {
     }
 
     @Override
-    public Optional<Reception> findByServiceNumber(String receptionId) {
-        return receptionRepository.findByServiceNumber(receptionId).map(ReceptionMapper::toEntity);
+    public Optional<Reception> findByServiceNumber(UUID upaId, String receptionId) {
+        return receptionRepository.findByUpaIdAndServiceNumber( upaId, receptionId).map(ReceptionMapper::toEntity);
     }
 
     @Override

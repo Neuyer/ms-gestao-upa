@@ -1,5 +1,6 @@
 package com.fiap.upa.core.usecase;
 
+import com.fiap.upa.core.dto.AddPatientToQueueDTO;
 import com.fiap.upa.core.entity.Reception;
 import com.fiap.upa.core.gateway.ReceptionGateway;
 import lombok.extern.slf4j.Slf4j;

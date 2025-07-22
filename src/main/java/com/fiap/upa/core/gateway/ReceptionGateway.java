@@ -20,7 +20,7 @@ public interface ReceptionGateway {
 
     Optional<Reception> findById(UUID receptionId);
 
-    Optional<Reception> findByServiceNumber(String receptionId);
+    Optional<Reception> findByServiceNumber(UUID upaId, String receptionId);
     String getServiceNumber(UUID upaId);
 
     void deleteById(UUID upaId);

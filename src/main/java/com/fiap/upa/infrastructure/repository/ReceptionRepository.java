@@ -17,6 +17,6 @@ public interface ReceptionRepository extends MongoRepository<ReceptionModel, UUI
     List<ReceptionModel> findByUpaIdAndStatusAndCreationDateBetween(UUID upaId, ServiceStatus status, LocalDateTime startDate, LocalDateTime endDate);
 
     List<ReceptionModel> findAllByUpaId(UUID id);
-    Optional<ReceptionModel> findByServiceNumber(String serviceNumber);
+    Optional<ReceptionModel> findByUpaIdAndServiceNumber(UUID id, String serviceNumber);
 }
 

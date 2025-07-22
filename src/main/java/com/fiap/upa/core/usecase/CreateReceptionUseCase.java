@@ -1,5 +1,6 @@
 package com.fiap.upa.core.usecase;
 
+import com.fiap.upa.core.dto.AddPatientToQueueDTO;
 import com.fiap.upa.core.dto.CreateReceptionDTO;
 import com.fiap.upa.core.entity.Reception;
 import com.fiap.upa.core.gateway.ReceptionGateway;
@@ -30,12 +31,10 @@ public class CreateReceptionUseCase {
     public Reception execute(UUID upaId, CreateReceptionDTO input) {
         log.info("Creating reception {}", input);
 
-        var serviceNumber = receptionGateway.getServiceNumber(upaId);
-
         var reception = Reception.createNewReception(
                 input.patientName(),
                 input.patientDocument(),
-                serviceNumber,
+                (int) (Math.random() * 90000) + "A",
                 input.specialty(),
                 input.urgencyLevel());
 
@@ -48,6 +47,9 @@ public class CreateReceptionUseCase {
         reception.updateAttendant(attendant);
 
         var savedReception = receptionGateway.save(reception);
+
+        var req = new AddPatientToQueueDTO.PatientRequest(reception.getPatientName(), reception.getServiceNumber());
+        receptionGateway.addPatientTOQueue(upaId, new AddPatientToQueueDTO(req, reception.getUrgencyLevel()));
 
         log.info("Reception for id {} created successfully", savedReception.getId());
         return reception;

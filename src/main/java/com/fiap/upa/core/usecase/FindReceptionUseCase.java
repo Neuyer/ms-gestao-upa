@@ -24,7 +24,7 @@ public class FindReceptionUseCase {
     public Reception execute(UUID upaId, String serviceNumber) {
         log.info("Finding reception: UPA - {} reception - {}", upaId, serviceNumber);
 
-        var reception = receptionGateway.findByServiceNumber(serviceNumber).orElseThrow(() -> {
+        var reception = receptionGateway.findByServiceNumber(upaId, serviceNumber).orElseThrow(() -> {
             log.error("Reception not found for number: {}", serviceNumber);
             return new IllegalStateException("Reception not found for number: " + serviceNumber);
         });
